@@ -1,11 +1,11 @@
 package xyz.vopen.passport.facade;
 
 import com.pyw.commons.cache.memcached.MemcachedClient;
-import xyz.vopen.passport.service.PassportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import xyz.vopen.passport.service.PassportService;
 
 import javax.annotation.Resource;
 
@@ -24,16 +24,6 @@ import javax.annotation.Resource;
  */
 public class ApiContextFacade {
 
-    public ApiContextFacade () {
-    }
-
-    /**
-     * Default Api Service Implements instance. inject on SpringContext
-     *
-     * @see PassportService
-     */
-    protected PassportService passportService;
-
     /**
      * Default MemcachedClient <br/>
      *
@@ -41,17 +31,24 @@ public class ApiContextFacade {
      */
     @Deprecated
     protected static MemcachedClient memcachedClient;
-
+    /**
+     * Default Api Service Implements instance. inject on SpringContext
+     *
+     * @see PassportService
+     */
+    protected PassportService passportService;
     /**
      * default redis template client <br/>
      */
     protected RedisTemplate<String, String> redisTemplate;
-
     /**
      * Redis 集合操作
      */
     @Resource(name = "redisTemplate")
     protected ListOperations<String, String> listOps;
+
+    public ApiContextFacade () {
+    }
 
     /**
      * PassportService setter method

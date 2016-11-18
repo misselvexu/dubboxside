@@ -3,9 +3,9 @@
  */
 package xyz.vopen.passport.dao.jdbc;
 
+import org.springframework.stereotype.Repository;
 import xyz.vopen.passport.commons.jdbc.JdbcDaoSupport;
 import xyz.vopen.passport.dao.PassportDAO;
-import org.springframework.stereotype.Repository;
 
 /**
  * @author Elve.xu

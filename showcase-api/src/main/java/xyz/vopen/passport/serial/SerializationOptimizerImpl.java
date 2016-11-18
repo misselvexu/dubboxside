@@ -14,8 +14,6 @@ import java.util.List;
 
 /**
  * 自定义序列化.
- *
- *
  */
 public class SerializationOptimizerImpl implements SerializationOptimizer {
 

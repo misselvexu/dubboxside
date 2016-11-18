@@ -3,7 +3,6 @@ package xyz.vopen.passport;
 /**
  * 返回结果定义.
  *
- *
  * @author Elve.xu
  */
 public enum PassportCode {
@@ -15,9 +14,7 @@ public enum PassportCode {
     /**
      * 成功
      */
-    SUCCESS(200, "成功"),
-
-    ;
+    SUCCESS(200, "成功"),;
 
 
     private final int code;
@@ -29,24 +26,6 @@ public enum PassportCode {
     PassportCode (int code, String msg) {
         this.code = code;
         this.msg = msg;
-    }
-
-    /**
-     * get code
-     *
-     * @return return code
-     */
-    public int code () {
-        return code;
-    }
-
-    /**
-     * get message
-     *
-     * @return return message desc
-     */
-    public String msg () {
-        return msg;
     }
 
     /**
@@ -102,6 +81,24 @@ public enum PassportCode {
             return false;
         }
         return false;
+    }
+
+    /**
+     * get code
+     *
+     * @return return code
+     */
+    public int code () {
+        return code;
+    }
+
+    /**
+     * get message
+     *
+     * @return return message desc
+     */
+    public String msg () {
+        return msg;
     }
 
 }

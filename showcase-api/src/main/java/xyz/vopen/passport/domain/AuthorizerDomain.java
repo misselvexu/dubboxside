@@ -5,8 +5,6 @@ package xyz.vopen.passport.domain;
 
 /**
  * 授权返回值
- *
- *
  */
 public class AuthorizerDomain {
 

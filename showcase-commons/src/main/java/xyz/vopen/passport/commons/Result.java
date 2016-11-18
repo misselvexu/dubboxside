@@ -56,6 +56,83 @@ public final class Result<T> extends DomainSerializable {
         return new Builder<T>();
     }
 
+    @Override
+    public String toString () {
+        return JSON.toJSONString(this);
+    }
+
+    /**
+     * 获取编码
+     *
+     * @return return code
+     */
+    public Integer getCode () {
+        return code;
+    }
+
+    /**
+     * set code
+     *
+     * @param code code
+     */
+    public void setCode (Integer code) {
+        this.code = code;
+    }
+
+    /**
+     * 获取 Message
+     *
+     * @return return message
+     */
+    public String getMsg () {
+        return msg;
+    }
+
+    /**
+     * set message
+     *
+     * @param msg message
+     */
+    public void setMsg (String msg) {
+        this.msg = msg;
+    }
+
+    /**
+     * 获取数据(泛型)
+     *
+     * @return 返回数据
+     */
+    public T getData () {
+        return data;
+    }
+
+    /**
+     * set data
+     *
+     * @param data data
+     */
+    public void setData (T data) {
+        this.data = data;
+    }
+
+    /**
+     * 直接转化成JSON字符串
+     *
+     * @return JSON字符串
+     */
+    public String string () {
+        return toString();
+    }
+
+    /**
+     * 直接转化成JSON字符串
+     *
+     * @return JSON字符串
+     */
+    public String json () {
+        return toJson();
+    }
+
     /**
      * inner builder
      */
@@ -148,83 +225,5 @@ public final class Result<T> extends DomainSerializable {
             return new Result<T>(this).toJson();
         }
 
-    }
-
-
-    @Override
-    public String toString () {
-        return JSON.toJSONString(this);
-    }
-
-    /**
-     * 获取编码
-     *
-     * @return return code
-     */
-    public Integer getCode () {
-        return code;
-    }
-
-    /**
-     * 获取 Message
-     *
-     * @return return message
-     */
-    public String getMsg () {
-        return msg;
-    }
-
-    /**
-     * 获取数据(泛型)
-     *
-     * @return 返回数据
-     */
-    public T getData () {
-        return data;
-    }
-
-    /**
-     * 直接转化成JSON字符串
-     *
-     * @return JSON字符串
-     */
-    public String string () {
-        return toString();
-    }
-
-    /**
-     * 直接转化成JSON字符串
-     *
-     * @return JSON字符串
-     */
-    public String json () {
-        return toJson();
-    }
-
-    /**
-     * set code
-     *
-     * @param code code
-     */
-    public void setCode (Integer code) {
-        this.code = code;
-    }
-
-    /**
-     * set message
-     *
-     * @param msg message
-     */
-    public void setMsg (String msg) {
-        this.msg = msg;
-    }
-
-    /**
-     * set data
-     *
-     * @param data data
-     */
-    public void setData (T data) {
-        this.data = data;
     }
 }

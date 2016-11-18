@@ -6,9 +6,9 @@ package xyz.vopen.passport.facade.exception;
  */
 public class NSIllegalRequestException extends RuntimeException {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public NSIllegalRequestException () {
+    public NSIllegalRequestException () {
     }
 
     public NSIllegalRequestException (String message) {

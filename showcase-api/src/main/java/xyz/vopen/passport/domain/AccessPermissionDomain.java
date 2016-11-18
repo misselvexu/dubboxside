@@ -6,7 +6,6 @@ package xyz.vopen.passport.domain;
 /**
  * 授权数据返回值
  *
- *
  * @author Elve.xu
  */
 public class AccessPermissionDomain {

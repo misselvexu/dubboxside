@@ -8,7 +8,6 @@ import com.pyw.commons.core.serial.DomainSerializable;
 /**
  * 授权请求结果.
  *
- *
  * @author Elve.xu
  */
 public class Authorizer extends DomainSerializable {

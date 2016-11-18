@@ -3,13 +3,13 @@
  */
 package xyz.vopen.passport.service.dubbo;
 
-import xyz.vopen.passport.service.DubboServiceSupport;
-import xyz.vopen.passport.service.PassportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
+import xyz.vopen.passport.service.DubboServiceSupport;
+import xyz.vopen.passport.service.PassportService;
 
 import java.util.Set;
 

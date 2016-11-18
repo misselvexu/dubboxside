@@ -1,11 +1,11 @@
 package xyz.vopen.passport.facade.service.rest;
 
-import xyz.vopen.passport.facade.ApiContextFacade;
-import xyz.vopen.passport.facade.exception.NSIllegalRequestException;
-import xyz.vopen.passport.facade.service.AuthorizerService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
+import xyz.vopen.passport.facade.ApiContextFacade;
+import xyz.vopen.passport.facade.exception.NSIllegalRequestException;
+import xyz.vopen.passport.facade.service.AuthorizerService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;

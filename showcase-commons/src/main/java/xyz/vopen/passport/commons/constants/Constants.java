@@ -8,5 +8,5 @@ package xyz.vopen.passport.commons.constants;
  */
 public interface Constants {
 
-    
+
 }

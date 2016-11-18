@@ -1,9 +1,9 @@
 package xyz.vopen.passport.commons.result;
 
 import com.google.common.collect.Maps;
+import org.junit.Test;
 import xyz.vopen.passport.PassportCode;
 import xyz.vopen.passport.commons.Result;
-import org.junit.Test;
 
 import java.util.Map;
 
@@ -15,7 +15,7 @@ public class ResultTest {
 
 
     @SuppressWarnings("rawtypes")
-	@Test
+    @Test
     public void testResult () {
 
         Map<String, String> data = Maps.newHashMap();

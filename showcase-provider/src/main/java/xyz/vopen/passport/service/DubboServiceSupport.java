@@ -2,9 +2,9 @@ package xyz.vopen.passport.service;
 
 
 import com.pyw.commons.cache.memcached.MemcachedClient;
-import xyz.vopen.passport.dao.PassportDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import xyz.vopen.passport.dao.PassportDAO;
 
 /**
  * 持久层支持
@@ -16,6 +16,15 @@ public class DubboServiceSupport {
      * 账号持久层接口
      */
     protected PassportDAO passportDAO;
+    /**
+     * Default MemcachedClient <br/>
+     */
+    @Deprecated
+    protected MemcachedClient memcachedClient;
+    /**
+     * default redis template client <br/>
+     */
+    protected RedisTemplate<String, String> redisTemplate;
 
     public PassportDAO getPassportDAO () {
         return passportDAO;
@@ -25,18 +34,6 @@ public class DubboServiceSupport {
     public void setPassportDAO (PassportDAO passportDAO) {
         this.passportDAO = passportDAO;
     }
-
-
-    /**
-     * Default MemcachedClient <br/>
-     */
-    @Deprecated
-    protected MemcachedClient memcachedClient;
-
-    /**
-     * default redis template client <br/>
-     */
-    protected RedisTemplate<String, String> redisTemplate;
 
     @Autowired(required = false)
     @Deprecated
