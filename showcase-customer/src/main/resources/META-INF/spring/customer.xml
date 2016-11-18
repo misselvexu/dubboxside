@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:component-scan base-package="com.pyw.passport"/>
+
+    <bean class="xyz.vopen.passport.commons.utils.CustomizedPropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 配置消费方应用名称 -->
+    <dubbo:application name="${dubbo.application.name}" owner="passport" organization="pyw" logger="slf4j"/>
+
+    <!-- 设置注册中心地址 -->
+    <dubbo:registry address="${dubbo.zookeeper.url}"/>
+    <dubbo:annotation package="com.pyw.passport"/>
+
+    <!--uncomment this if you want to test dubbo's monitor-->
+    <dubbo:monitor protocol="registry"/>
+
+    <!-- 引用服务提供者消费接口 -->
+    <dubbo:reference id="passportService" interface="xyz.vopen.passport.service.PassportService" timeout="2000"/>
+
+    <bean id="testAction" class="xyz.vopen.passport.actions.TestAction">
+    </bean>
+
+</beans>

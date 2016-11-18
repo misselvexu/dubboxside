@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	   http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:component-scan base-package="xyz.vopen"/>
+
+    <bean class="xyz.vopen.passport.commons.utils.CustomizedPropertyPlaceholderConfigurer">
+        <property name="ignoreResourceNotFound" value="true"/>
+        <property name="locations">
+            <list>
+                <value>classpath*:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <dubbo:application name="${dubbo.application.name}" owner="passport" organization="vopen" logger="slf4j"/>
+    <dubbo:registry address="${dubbo.zookeeper.url}"/>
+    <dubbo:monitor protocol="registry"/>
+    <dubbo:annotation package="xyz.vopen"/>
+
+
+    <!-- dubbo 协议配置 -->
+    <dubbo:protocol name="dubbo"
+                    serialization="kryo"
+                    optimizer="xyz.vopen.passport.serial.SerializationOptimizerImpl"/>
+
+    <!-- REST 协议配置 -->
+    <dubbo:protocol name="rest"
+                    port="${dubbo.protocol.http.port}"
+                    contextpath="${dubbo.application.http.context.path}"
+                    server="${dubbo.protocol.http.server}"
+                    extension="
+                    xyz.vopen.passport.facade.filter.CustomExceptionMapper,
+                    xyz.vopen.passport.facade.filter.AccessPermissionFilter"
+    />
+
+
+</beans>

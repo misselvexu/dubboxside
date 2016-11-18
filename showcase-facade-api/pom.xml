@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<project
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>xyz.vopen.showcase</groupId>
+        <artifactId>showcase-parent</artifactId>
+        <version>1.1.0</version>
+    </parent>
+    <artifactId>showcase-facade-api</artifactId>
+    <name>showcase-facade-api</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+        </dependency>
+
+        <!-- dubbo 协议的接口, 同语言使用 -->
+        <dependency>
+            <groupId>xyz.vopen.showcase</groupId>
+            <artifactId>showcase-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>xyz.vopen.showcase</groupId>
+            <artifactId>showcase-commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

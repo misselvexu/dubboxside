@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>showcase-parent</artifactId>
+        <groupId>xyz.vopen.showcase</groupId>
+        <version>1.1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>showcase-customer</artifactId>
+    <packaging>jar</packaging>
+
+    <name>showcase-customer</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skip_maven_deploy>true</skip_maven_deploy>
+    </properties>
+
+    <dependencies>
+
+        <!-- 测试的API 接口 -->
+        <dependency>
+            <groupId>xyz.vopen.showcase</groupId>
+            <artifactId>showcase-api</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>xyz.vopen.showcase</groupId>
+            <artifactId>showcase-commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+
+        <!-- end -->
+
+
+        <dependency>
+            <groupId>com.pyw.commons</groupId>
+            <artifactId>pyw-commons-http</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpasyncclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-config-spring</artifactId>
+        </dependency>
+        <!-- dubbo container -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-container-spring</artifactId>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-container-logback</artifactId>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-monitor-default</artifactId>
+        </dependency>
+        <!-- dubbo registry -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-registry-zookeeper</artifactId>
+        </dependency>
+        <!-- dubbo remoting -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-remoting-netty</artifactId>
+        </dependency>
+        <!-- dubbo rpc -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-rpc-default</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo-rpc-rest</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.sgroschupf</groupId>
+            <artifactId>zkclient</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.curator</groupId>
+            <artifactId>curator-framework</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.esotericsoftware.kryo</groupId>
+            <artifactId>kryo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.javakaffee</groupId>
+            <artifactId>kryo-serializers</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.ruedigermoeller</groupId>
+            <artifactId>fst</artifactId>
+        </dependency>
+
+    </dependencies>
+</project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+
+    <!-- memcached -->
+    <!--
+    <bean id="memcachedClient" class="com.pyw.commons.cache.memcached.MemcachedClient"
+          destroy-method="shutdown">
+        <property name="enabled" value="${cache.memcached.enabled}"/>
+        <property name="servers" value="${cache.memcached.servers}"/>
+        <property name="connectionPoolSize" value="${cache.memcached.connection_pool_size}"/>
+        <property name="commandFactory">
+            <bean class="net.rubyeye.xmemcached.command.TextCommandFactory"/>
+        </property>
+        <property name="sessionLocator">
+            <bean class="net.rubyeye.xmemcached.impl.KetamaMemcachedSessionLocator"/>
+        </property>
+        <property name="transcoder">
+            <bean class="net.rubyeye.xmemcached.transcoders.StringTranscoder"/>
+        </property>
+    </bean>
+    -->
+
+
+    <!-- redis连接池的配置 -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${cache.redis.maxIdle}"/>
+        <property name="minIdle" value="${cache.redis.minIdle}"/>
+        <property name="maxWaitMillis" value="${cache.redis.maxWaitTime}"/>
+        <property name="testOnBorrow" value="${cache.redis.testOnBorrow}"/>
+        <property name="testOnReturn" value="false"/>
+    </bean>
+
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <constructor-arg index="0" ref="jedisPoolConfig"/>
+        <property name="hostName" value="${cache.redis.host}"/>
+        <property name="port" value="${cache.redis.port}"/>
+        <property name="password" value="${cache.redis.password}"/>
+    </bean>
+
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate">
+        <property name="connectionFactory" ref="jedisConnectionFactory"/>
+        <property name="keySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="valueSerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+    </bean>
+
+
+</beans>
