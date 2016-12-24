@@ -23,7 +23,7 @@ public class CustomExceptionMapper implements ExceptionMapper<Exception> {
 
         // TODO ....
 
-        // otherwise return 404
+        // otherwise return 404 or you customer exception code
         return Response.status(Response.Status.NOT_FOUND).entity("404").type(MediaTypes.TEXT_PLAIN_UTF8).build();
     }
 }
