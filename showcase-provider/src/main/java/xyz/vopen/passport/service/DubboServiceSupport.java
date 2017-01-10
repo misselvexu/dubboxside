@@ -16,11 +16,7 @@ public class DubboServiceSupport {
      * 账号持久层接口
      */
     protected PassportDAO passportDAO;
-    /**
-     * Default MemcachedClient <br/>
-     */
-    @Deprecated
-    protected MemcachedClient memcachedClient;
+    
     /**
      * default redis template client <br/>
      */
@@ -33,12 +29,6 @@ public class DubboServiceSupport {
     @Autowired
     public void setPassportDAO (PassportDAO passportDAO) {
         this.passportDAO = passportDAO;
-    }
-
-    @Autowired(required = false)
-    @Deprecated
-    public void setMemcachedClient (MemcachedClient memcachedClient) {
-        this.memcachedClient = memcachedClient;
     }
 
     @Autowired(required = false)
